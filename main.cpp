@@ -198,6 +198,8 @@ int main(){
                 applex = ck1[random][0];
                 appley = ck1[random][1];
                 snake_size++;
+                snake_body[snake_size-1][0] = snake_body[snake_size-2][0];
+                snake_body[snake_size-1][1] = snake_body[snake_size-2][1];
             }
         }
         timer++;
