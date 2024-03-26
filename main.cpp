@@ -5,7 +5,7 @@
 #include <time.h>
 #include <ctime>
 #include <cstring>
-#define BOARD_SIZE 5
+#define BOARD_SIZE 20
 #define MOVE_DELAY 15
 using namespace console;
 using namespace std;
