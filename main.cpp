@@ -5,7 +5,7 @@
 #include <time.h>
 #include <ctime>
 #include <cstring>
-#define BOARD_SIZE 5
+#define BOARD_SIZE 20
 #define MOVE_DELAY 15
 using namespace console;
 using namespace std;
@@ -72,10 +72,10 @@ int main(){
         clear();
         draw_board();   // 판그리기
         
-
-        draw((BOARD_SIZE/2)-4,BOARD_SIZE, "Score: " + to_string(score));   // 스코어 출력
-        draw(applex, appley, "●");                                          // 사과 출력  
-        for(int i = snake_size-1; i >= 0; i--){                             // 뱀 출력
+        int socre_size = ("Score: " + to_string(score)).size();                         // 점수바의 길이를 구함
+        draw((BOARD_SIZE/2)-(socre_size/2),BOARD_SIZE, "Score: " + to_string(score));   // 스코어 출력
+        draw(applex, appley, "●");                                                      // 사과 출력  
+        for(int i = snake_size-1; i >= 0; i--){                                         // 뱀 출력
             draw(snake_body[i][0], snake_body[i][1], "■");
         }
         if(snakex == 0 || snakex == BOARD_SIZE-1 || snakey == 0 || snakey == BOARD_SIZE-1){ // 맵에 닿았을때 사망처리
@@ -108,7 +108,7 @@ int main(){
             }
             draw((BOARD_SIZE/2)-4, BOARD_SIZE/2, "YOU LOSE!");
             draw((BOARD_SIZE/2)-9, (BOARD_SIZE/2)+1, "Try again? (Enter)");
-            draw((BOARD_SIZE/2)-4,BOARD_SIZE, "Score: " + to_string(score));
+            draw((BOARD_SIZE/2)-(socre_size/2),BOARD_SIZE, "Score: " + to_string(score));
             wait();
             if(key(K_ENTER)){
                 out = false;
